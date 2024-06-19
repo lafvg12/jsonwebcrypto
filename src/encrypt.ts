@@ -1,4 +1,4 @@
-import { createCipheriv, randomBytes, CipherGCMTypes } from "crypto";
+import { createCipheriv, randomBytes, CipherGCMTypes } from "./config/crypto";
 
 const algorithm: CipherGCMTypes = "aes-256-gcm";
 const key = randomBytes(32);

@@ -10,7 +10,6 @@ export function decrypt(
 ): string {
   const decipher = createDecipheriv(algorithm, key, Buffer.from(iv, "hex"));
   decipher.setAuthTag(Buffer.from(tag, "hex"));
-
   let decrypted = decipher.update(encryptedData, "hex", "utf8");
   decrypted += decipher.final("utf8");
 
