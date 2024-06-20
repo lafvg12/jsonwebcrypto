@@ -2,7 +2,7 @@ import { createHash, Hash } from "./config/crypto";
 import { TAlgorithm } from "./types/hash.type";
 
 /**
- *
+ * Generates a hash from the given data using the specified algorithm.
  * @param algorithm : TAlgorithm "sha1" | "sha256" | "sha512 default is "sha256"
  * @param data
  * @returns string hex
@@ -28,5 +28,5 @@ export function hash(data: string, algorithm: TAlgorithm = "sha256"): string {
       )}`
     );
   }
-  return createHash(algorithm).update("hello").digest("hex");
+  return createHash(algorithm).update(data).digest("hex");
 }
