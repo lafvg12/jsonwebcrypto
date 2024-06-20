@@ -21,8 +21,9 @@ export type {
 
 export const {
   randomUUID,
+  randomBytes,
   randomInt,
   createCipheriv,
-  randomBytes,
   createHash,
+  scryptSync,
 } = crypto;
