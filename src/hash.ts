@@ -1,5 +1,5 @@
 import { createHash, Hash } from "./config/crypto";
-import { TAlgorithm } from "./types/hash.type";
+import { TAlgorithm } from "./types";
 
 /**
  * Generates a hash from the given data using the specified algorithm.
