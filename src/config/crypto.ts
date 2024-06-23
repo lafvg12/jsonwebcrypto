@@ -7,6 +7,7 @@ import type {
   CipherCCMOptions,
   Encoding,
   Hash,
+  KeyObject,
 } from "crypto";
 
 export type {
@@ -16,6 +17,7 @@ export type {
   CipherCCMTypes,
   CipherCCMOptions,
   Encoding,
+  KeyObject,
   Hash,
 };
 
@@ -26,4 +28,6 @@ export const {
   createCipheriv,
   createHash,
   scryptSync,
+  createHmac,
+  createSecretKey,
 } = crypto;
