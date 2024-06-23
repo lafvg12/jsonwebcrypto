@@ -1,4 +1,6 @@
-# Json Web crypto Library 🔒🛡️
+# Json Web crypto Library 🔒🛡️ 
+
+![Esta es una imagen de ejemplo](https://jwt.io/img/badge-compatible.svg)
 
 
 This library serves as a simple and efficient wrapper around Node.js's crypto module, designed to facilitate hashing, encryption, and other cryptographic operations.
@@ -20,6 +22,52 @@ Install the library using npm:
 
 ```bash
 npm install jsonwebcrypto
+```
+
+## JWT Utilities  🔑
+
+This project provides utility functions for signing and verifying JSON Web Tokens (JWT) using HMAC algorithms. The main functions are `signJWT` and `verifyJWT`.
+
+- **signJWT** 🛡️
+```javascript
+import { signJWT } from 'jsonwebcrypto';
+
+const payload: JWTPayload = { userId: 123 };
+
+const secret = 'mysecretkey';
+
+//Options object is optional⭐
+const options: SignOptions = {
+  expiresIn: '3d', // 3 days
+  notBefore: '1h', // 1 hour
+  algorithm: 'HS256' // HMAC SHA-256
+};
+
+const token = signJWT(payload, secret, options);
+
+```
+
+- **verifyJWT** ✅
+
+```javascript
+import { verifyJWT } from 'jsonwebcrypto';
+
+const tokenToVerify = 'your.jwt.token.here';
+const secret = 'mysecretkey';
+
+try {
+    //if you assigned audience or other option here validate, otherwise just send secret and token
+    const decoded = verifyJWT(tokenToVerify, secret, { audience: 'your-audience'});
+  } catch (error) {
+    if (error instanceof TokenExpiredError) {
+      console.error('Token has expired:', error.expiredAt);
+    } else if (error instanceof JsonWebTokenError) {
+      console.error('JWT Error:', error.message);
+    } else {
+      console.error('Unknown error:', error);
+    }
+  }
+
 ```
 
 ## More Secure Password Derivation 🔐
