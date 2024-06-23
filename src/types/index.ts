@@ -18,3 +18,28 @@ export type ScryptOptions = {
   parallelization?: number;
   maxmem?: number;
 };
+
+/**
+ * Type for representing duration. It can be either a number (seconds) or a string (e.g., '3d' for 3 days).
+ */
+export type Duration = string | number;
+
+/**
+ * Options for signing a JWT.
+ */
+export interface SignOptions {
+  algorithm?: "HS256" | "HS384" | "HS512";
+  expiresIn?: Duration;
+  notBefore?: Duration;
+  iat?: number;
+}
+
+/**
+ * Payload interface for JWT.
+ */
+export interface JWTPayload {
+  [key: string]: any;
+  iat?: number;
+  exp?: number;
+  nbf?: number;
+}
